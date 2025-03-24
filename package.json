@@ -1,7 +1,7 @@
 {
   "name": "@akashic-extension/instance-storage",
   "version": "1.0.0",
-  "description": "",
+  "description": "An extension library providing multi-platform storage for Akashic Engine",
   "main": "lib/index.js",
   "author": "DWANGO Co., Ltd.",
   "license": "MIT",
