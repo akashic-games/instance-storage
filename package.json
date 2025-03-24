@@ -1,0 +1,46 @@
+{
+  "name": "@akashic-extension/instance-storage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "author": "DWANGO Co., Ltd.",
+  "license": "MIT",
+  "publishConfig": {
+    "@akashic:registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akashic-games/instance-storage.git"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "rimraf ./lib && npm run format && tsc",
+    "doc": "typedoc --out ./public/api src/index.ts",
+    "format": "run-s format:*",
+    "format:prettier": "prettier --write .",
+    "format:eslint": "eslint \"src/**/*.ts\" --fix",
+    "test": "run-s test:*",
+    "test:vitest": "vitest run --coverage",
+    "test:prettier": "prettier -c .",
+    "test:eslint": "eslint \"src/**/*.ts\"",
+    "test:remark": "remark ./*.md --frail --no-stdout --quiet"
+  },
+  "files": [
+    "lib",
+    "akashic-lib.json"
+  ],
+  "devDependencies": {
+    "@akashic/akashic-engine": "^3.20.2",
+    "@akashic/eslint-config": "^3.0.1",
+    "@akashic/remark-preset-lint": "^0.1.2",
+    "@vitest/coverage-v8": "^3.0.9",
+    "eslint-config-prettier": "^10.1.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.5.3",
+    "remark-cli": "^12.0.1",
+    "rimraf": "^6.0.1",
+    "typedoc": "^0.28.0",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
+  }
+}
