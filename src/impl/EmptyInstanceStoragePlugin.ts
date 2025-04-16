@@ -4,6 +4,10 @@ export interface EmptyInstanceStoragePluginParameterObject {
 	verbose?: boolean;
 }
 
+/**
+ * インスタンスストレージの空実装。
+ * 本クラスはストレージとしての機能を持たないことに注意。
+ */
 export class EmptyInstanceStoragePlugin implements InstanceStorageLimitedPluginLike {
 	private verbose: boolean;
 

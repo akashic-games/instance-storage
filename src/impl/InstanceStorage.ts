@@ -5,6 +5,9 @@ export interface InstanceStorageParameterObject {
 	verbose?: boolean;
 }
 
+/**
+ * インスタンスストレージ
+ */
 export class InstanceStorage implements InstanceStorageLike {
 	private plugin: InstanceStorageLimitedPluginLike;
 	private verbose: boolean;
@@ -69,6 +72,9 @@ export class InstanceStorage implements InstanceStorageLike {
 		});
 	}
 
+	/**
+	 * @private
+	 */
 	_getPlugin(): InstanceStorageLimitedPluginLike {
 		return this.plugin;
 	}
