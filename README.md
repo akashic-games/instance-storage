@@ -32,9 +32,52 @@ akashic install @akashic-extension/instance-storage
 
 ## 利用方法
 
+スクリプトアセット内で、 `require()` により関数 `create()` を取得します。
+
+```js
+const { create: createInstanceStorage } = require("@akashic-extension/instance-storage");
+```
+
+TypeScript の場合は `import` を利用してください。
+
+```ts
+import { create as createInstanceStorage } from "@akashic-extension/instance-storage";
+```
+
+`create()` を実行すると instanceStorage のインスタンスを生成します。
+
+```js
+const { create: createInstanceStorage } = require("@akashic-extension/instance-storage");
+
+...
+
+const instanceStorage = createInstanceStorage();
+
+instanceStorage.read("key1", (error, value) => {
+  if (error) {
+    console.log(error);
+    return;
+  }
+  console.log(`value: ${value}`);
+});
+```
+
+`promisify()` により、 instanceStorage の各メソッドを `Promise` で実行するインスタンスを生成できます。
+
+```js
+const { create: createInstanceStorage, promisify } = require("@akashic-extension/instance-storage");
+
+const instanceStorage = promisify(createInstanceStorage());
+
+(async () => {
+  const value = await instanceStorage.read("key1");
+  console.log(`value: ${value}`);
+})();
+```
+
 ## 仕様
 
-## 制限
+詳細な仕様は [APIリファレンス](https://akashic-games.github.io/instance-storage/api/index.html) を参照してください。
 
 ## 開発
 

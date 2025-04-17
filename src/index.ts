@@ -9,6 +9,11 @@ export interface CreateInstanceStorageParameterObject {
 	verbose?: boolean;
 }
 
+/**
+ * instance-storage のインスタンスを生成する。
+ * @param param パラメータ
+ * @returns instance-storage のインスタンス
+ */
 export function create(param?: CreateInstanceStorageParameterObject): InstanceStorage {
 	const verbose = param?.verbose ?? false;
 	let plugin = g.game.external.instanceStorageLimited;
@@ -24,6 +29,11 @@ export function create(param?: CreateInstanceStorageParameterObject): InstanceSt
 	});
 }
 
+/**
+ * Promise 化された instance-storage のインスタンスを返す。
+ * @param instanceStorage instance-storage のインスタンス
+ * @returns Promise 化された instance-storage のインスタンス
+ */
 export function promisify(instanceStorage: InstanceStorageLike): PromisifiedInstanceStorageLike {
 	return {
 		read(key: string) {
