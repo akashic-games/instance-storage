@@ -35,19 +35,23 @@ akashic install @akashic-extension/instance-storage
 スクリプトアセット内で、 `require()` により関数 `create()` を取得します。
 
 ```js
-const { create } = require("@akashic-extension/instance-storage");
+const { create: createInstanceStorage } = require("@akashic-extension/instance-storage");
 ```
 
 TypeScript の場合は `import` を利用してください。
 
 ```ts
-import { create } from "@akashic-extension/instance-storage";
+import { create as createInstanceStorage } from "@akashic-extension/instance-storage";
 ```
 
 `create()` を実行すると instanceStorage のインスタンスを生成します。
 
 ```js
-const instanceStorage = create();
+const { create: createInstanceStorage } = require("@akashic-extension/instance-storage");
+
+...
+
+const instanceStorage = createInstanceStorage();
 
 instanceStorage.read("key1", (error, value) => {
   if (error) {
@@ -61,9 +65,9 @@ instanceStorage.read("key1", (error, value) => {
 `promisify()` により、 instanceStorage の各メソッドを `Promise` で実行するインスタンスを生成できます。
 
 ```js
-const { create, promisify } = require("@akashic-extension/instance-storage");
+const { create: createInstanceStorage, promisify } = require("@akashic-extension/instance-storage");
 
-const instanceStorage = promisify(create());
+const instanceStorage = promisify(createInstanceStorage());
 
 (async () => {
   const value = await instanceStorage.read("key1");
