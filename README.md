@@ -32,47 +32,42 @@ akashic install @akashic-extension/instance-storage
 
 ## 利用方法
 
-スクリプトアセット内で、 `require()` により関数 `create()` を取得します。
+スクリプトアセット内で、 `require()` により関数 `instanceStorage` を取得します。
 
 ```js
-const { create: createInstanceStorage } = require("@akashic-extension/instance-storage");
+const { instanceStorage } = require("@akashic-extension/instance-storage");
 ```
 
 TypeScript の場合は `import` を利用してください。
 
 ```ts
-import { create as createInstanceStorage } from "@akashic-extension/instance-storage";
+import { instanceStorage } from "@akashic-extension/instance-storage";
 ```
 
-`create()` を実行すると instanceStorage のインスタンスを生成します。
-
 ```js
-const { create: createInstanceStorage } = require("@akashic-extension/instance-storage");
+const { instanceStorage } = require("@akashic-extension/instance-storage");
 
 ...
 
-const instanceStorage = createInstanceStorage();
+(async () => {
+  const value = await instanceStorage.read("key1");
+  console.log(`value: ${value}`);
+})();
+```
 
-instanceStorage.read("key1", (error, value) => {
+`Promise` の代わりにコールバック関数を渡すことができる `instanceStorageRaw` も利用できます。
+(通常利用する必要はありません)
+
+```js
+const { instanceStorageRaw } = require("@akashic-extension/instance-storage");
+
+instanceStorageRaw.read("key1", (error, value) => {
   if (error) {
     console.log(error);
     return;
   }
   console.log(`value: ${value}`);
 });
-```
-
-`promisify()` により、 instanceStorage の各メソッドを `Promise` で実行するインスタンスを生成できます。
-
-```js
-const { create: createInstanceStorage, promisify } = require("@akashic-extension/instance-storage");
-
-const instanceStorage = promisify(createInstanceStorage());
-
-(async () => {
-  const value = await instanceStorage.read("key1");
-  console.log(`value: ${value}`);
-})();
 ```
 
 ## 仕様

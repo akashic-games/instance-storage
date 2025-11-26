@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import { InstanceStorage, promisify } from "../";
+import { InstanceStorage, promisify } from "../impl";
 import { createMockInstanceStorage, mockConsole, resetMockConsole, restoreConsole } from "./mock";
 
 describe("InstanceStorage", () => {
