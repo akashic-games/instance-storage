@@ -32,7 +32,7 @@ akashic install @akashic-extension/instance-storage
 
 ## 利用方法
 
-スクリプトアセット内で、 `require()` により関数 `instanceStorage` を取得します。
+スクリプトアセット内で、 `require()` により値 `instanceStorage` を取得します。
 
 ```js
 const { instanceStorage } = require("@akashic-extension/instance-storage");
