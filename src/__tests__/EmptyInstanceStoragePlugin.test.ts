@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import { EmptyInstanceStoragePlugin, promisify } from "..";
+import { EmptyInstanceStoragePlugin, promisify } from "../impl";
 import { mockConsole, restoreConsole } from "./mock";
 
 describe("EmptyInstanceStoragePlugin", () => {

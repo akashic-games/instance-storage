@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { create, EmptyInstanceStoragePlugin, InstanceStorage } from "..";
+import { create, EmptyInstanceStoragePlugin, InstanceStorage } from "../impl";
 import { createMockInstanceStorage, mockConsole, restoreConsole } from "./mock";
 
 describe("index", () => {
