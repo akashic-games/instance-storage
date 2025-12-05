@@ -6,7 +6,8 @@
   "author": "DWANGO Co., Ltd.",
   "license": "MIT",
   "publishConfig": {
-    "@akashic-extension:registry": "https://registry.npmjs.org/"
+    "@akashic-extension:registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "repository": {
     "type": "git",
