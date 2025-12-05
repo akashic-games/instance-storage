@@ -29,12 +29,6 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           npm ci
           npm run doc
-      - uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          user_name: 'github-actions'
-          user_email: '41898282+github-actions[bot]@users.noreply.github.com'
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
         with:
